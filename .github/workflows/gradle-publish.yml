@@ -23,13 +23,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Tag Docker image
-        run: |
-          docker tag spring-app:latest docker.io/${{ secrets.DOCKERHUB_USERNAME }}/spring-app:$(date +%y%m%d)
-        shell: bash
       - name: Push Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/spring-app:$(date +%y%m%d)
+          tags: spring-app:latest
