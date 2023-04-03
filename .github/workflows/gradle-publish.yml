@@ -22,10 +22,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build Spring Boot image
-        run: ./gradlew bootBuildImage --imageName=docker.io/${{ secrets.DOCKERHUB_USERNAME }}/spring-app:${GITHUB_SHA::7}
+        run: ./gradlew bootBuildImage --imageName=docker.io/${{ secrets.DOCKERHUB_USERNAME }}/spring-app:latest
       - name: Push Docker image to Docker Hub
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/spring-app:${GITHUB_SHA::7}
+          tags: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/spring-app:latest
