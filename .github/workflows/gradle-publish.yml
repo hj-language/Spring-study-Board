@@ -19,4 +19,4 @@ jobs:
       - name: Build Spring Boot application
         run: ./gradlew bootBuildImage --imageName spring-app:latest
       - name: Run Docker container
-        run: docker run -p 8080:8080 my-spring-app
+        run: docker run -p 8080:8080 spring-app:latest
