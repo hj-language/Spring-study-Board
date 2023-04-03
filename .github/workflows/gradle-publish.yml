@@ -12,7 +12,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
+          java-version: '17'
       - name: Build Spring Boot application
         run: ./gradlew bootBuildImage
       - name: Log into Docker Hub
